@@ -62,7 +62,7 @@ func main() {
 		logging.GetLogger().Info("The router has been deployed successfully.")
 	}()
 
-	logging.GetLogger().Info("Start to listening the incoming requests on http address:" + port)
+	logging.GetLogger().Info("Start to listening the incoming requests on http address" + port)
 	log.Printf(http.ListenAndServe(port, g).Error())
 }
 

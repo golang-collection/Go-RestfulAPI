@@ -1,2 +1,12 @@
 {"level":"info","ts":1598432011.281339,"msg":"Start to listening the incoming requests on http address::8080"}
 {"level":"info","ts":1598432011.282329,"msg":"The router has been deployed successfully."}
+{"level":"info","ts":1598437584.661855,"msg":"Start to listening the incoming requests on http address:8080"}
+{"level":"info","ts":1598437584.662803,"msg":"The router has been deployed successfully."}
+{"level":"error","ts":1598437791.335381,"msg":"get an error","error":"Err - code: 20102, message: The user was not found. This is add message., error: username can not found in db: xx.xx.xx.xx"}
+{"level":"error","ts":1598437798.3083498,"msg":"get an error","error":"Err - code: 20102, message: The user was not found. This is add message., error: username can not found in db: xx.xx.xx.xx"}
+{"level":"error","ts":1598437802.371246,"msg":"get an error","error":"Err - code: 20102, message: The user was not found. This is add message., error: username can not found in db: xx.xx.xx.xx"}
+{"level":"error","ts":1598437833.922529,"msg":"get an error","error":"Err - code: 20102, message: The user was not found. This is add message., error: username can not found in db: xx.xx.xx.xx"}
+{"level":"error","ts":1598437862.507552,"msg":"get an error","error":"Err - code: 20102, message: The user was not found. This is add message., error: username can not found in db: xx.xx.xx.xx"}
+{"level":"error","ts":1598437893.068626,"msg":"get an error","error":"Err - code: 20102, message: The user was not found. This is add message., error: username can not found in db: xx.xx.xx.xx"}
+{"level":"info","ts":1598438617.03993,"msg":"Start to listening the incoming requests on http address:8080"}
+{"level":"info","ts":1598438617.041106,"msg":"The router has been deployed successfully."}
