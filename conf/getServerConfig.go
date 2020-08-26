@@ -1,8 +1,8 @@
 package watchConfig
 
 import (
+	"Go-RestfulAPI/conf/model"
 	"github.com/spf13/viper"
-	"superTools-backend/services/watchConfig/model"
 )
 
 /**
@@ -12,7 +12,6 @@ import (
 **/
 
 var Server = &model.ServerConfig{}
-
 
 func GetServerConfig() {
 	httpPort := viper.GetInt("server.http_port")

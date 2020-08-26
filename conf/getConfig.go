@@ -1,9 +1,9 @@
 package watchConfig
 
 import (
+	"Go-RestfulAPI/conf/model"
 	"fmt"
 	"github.com/spf13/viper"
-	"superTools-backend/services/watchConfig/model"
 )
 
 /**

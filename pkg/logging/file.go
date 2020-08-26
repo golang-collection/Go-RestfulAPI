@@ -1,6 +1,7 @@
 package logging
 
 import (
+	"Go-RestfulAPI/conf"
 	"fmt"
 	"time"
 )
@@ -14,8 +15,8 @@ import (
 var (
 	LogSavePath = "runtime/logs/"
 	LogSaveName = "log"
-	LogFileExt = "log"
-	TimeFormat = "20060102"
+	LogFileExt  = "log"
+	TimeFormat  = "20060102"
 )
 
 func getLogFilePath() string {
