@@ -62,3 +62,12 @@
 {"level":"info","ts":1598442684.5808902,"msg":"Start to listening the incoming requests on http address:8080"}
 {"level":"info","ts":1598442684.581375,"msg":"Waiting for the router, retry in 1 second."}
 {"level":"info","ts":1598442685.5875661,"msg":"The router has been deployed successfully."}
+{"level":"info","ts":1598443612.356859,"msg":"Start to listening the incoming requests on http address:8080"}
+{"level":"info","ts":1598443612.357365,"msg":"Waiting for the router, retry in 1 second."}
+{"level":"info","ts":1598443613.3632488,"msg":"The router has been deployed successfully."}
+{"level":"info","ts":1598443651.090661,"msg":"Start to listening the incoming requests on http address:8080"}
+{"level":"info","ts":1598443651.0945122,"msg":"The router has been deployed successfully."}
+{"level":"info","ts":1598443944.113295,"msg":"Start to listening the incoming requests on http address:8080"}
+{"level":"info","ts":1598443944.113801,"msg":"Waiting for the router, retry in 1 second."}
+{"level":"info","ts":1598443945.11472,"msg":"The router has been deployed successfully."}
+{"level":"info","ts":1598443948.879183,"msg":"39.44ms       | 127.0.0.1    | GET /v1/user | {code: 0, message: OK}"}
