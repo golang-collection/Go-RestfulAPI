@@ -1,8 +1,8 @@
 package logging
 
 import (
-	"Go-RestfulAPI/conf"
 	"fmt"
+	"github.com/spf13/viper"
 	"time"
 )
 
@@ -20,13 +20,13 @@ var (
 )
 
 func getLogFilePath() string {
-	return fmt.Sprintf("%s%s", watchConfig.LogConfig.RuntimeRootPath, watchConfig.LogConfig.LogSavePath)
+	return fmt.Sprintf("%s%s", viper.GetString("log.runtime_root_path"), viper.GetString("log.log_save_path"))
 }
 
 func getLogFileName() string {
 	return fmt.Sprintf("%s%s.%s",
-		watchConfig.LogConfig.LogSaveName,
-		time.Now().Format(watchConfig.LogConfig.TimeFormat),
-		watchConfig.LogConfig.LogFileExt,
+		viper.GetString("log.log_save_name"),
+		time.Now().Format(viper.GetString("log.time_format")),
+		viper.GetString("log.log_file_ext"),
 	)
 }

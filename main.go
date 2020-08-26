@@ -1,9 +1,14 @@
 package main
 
 import (
+	"Go-RestfulAPI/config"
+	"Go-RestfulAPI/pkg/logging"
 	"Go-RestfulAPI/router"
 	"errors"
 	"github.com/gin-gonic/gin"
+	"github.com/spf13/pflag"
+	"github.com/spf13/viper"
+	"go.uber.org/zap"
 	"log"
 	"net/http"
 	"time"
@@ -15,7 +20,23 @@ import (
 * @Description:
 **/
 
+var (
+	cfg  = pflag.StringP("config", "c", "", "config file path")
+	port string
+)
+
 func main() {
+	pflag.Parse()
+
+	//init config
+	if err := config.Init(*cfg); err != nil {
+		logging.GetLogger().Error("init config error.", zap.Error(err))
+		panic(err)
+	}
+	port = viper.GetString("addr")
+
+	gin.SetMode(viper.GetString("runmode"))
+
 	// Create the Gin engine.
 	g := gin.New()
 
@@ -33,20 +54,20 @@ func main() {
 	// Ping the server to make sure the router is working.
 	go func() {
 		if err := pingServer(); err != nil {
-			log.Fatal("The router has no response, or it might took too long to start up.", err)
+			logging.GetLogger().Error("The router has no response, or it might took too long to start up.", zap.Error(err))
 		}
-		log.Print("The router has been deployed successfully.")
+		logging.GetLogger().Info("The router has been deployed successfully.")
 	}()
 
-	log.Printf("Start to listening the incoming requests on http address: %s", ":8080")
-	log.Printf(http.ListenAndServe(":8080", g).Error())
+	logging.GetLogger().Info("Start to listening the incoming requests on http address:" + port)
+	log.Printf(http.ListenAndServe(port, g).Error())
 }
 
 // pingServer pings the http server to make sure the router is working.
 func pingServer() error {
 	for i := 0; i < 2; i++ {
 		// Ping the server by sending a GET request to `/health`.
-		resp, err := http.Get("http://127.0.0.1:8080" + "/sd/health")
+		resp, err := http.Get(viper.GetString("url") + "/sd/health")
 		if err == nil && resp.StatusCode == 200 {
 			return nil
 		}
