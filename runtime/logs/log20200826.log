@@ -35,3 +35,30 @@
 {"level":"info","ts":1598441631.117387,"msg":"Waiting for the router, retry in 1 second."}
 {"level":"info","ts":1598441632.1226099,"msg":"The router has been deployed successfully."}
 {"level":"info","ts":1598441637.281661,"msg":"User Create function called.","X-Request-Id":""}
+{"level":"info","ts":1598441901.9031649,"msg":"Start to listening the incoming requests on http address:8080"}
+{"level":"info","ts":1598441901.9037068,"msg":"Waiting for the router, retry in 1 second."}
+{"level":"info","ts":1598441902.909823,"msg":"The router has been deployed successfully."}
+{"level":"info","ts":1598441912.6078248,"msg":"User Create function called.","X-Request-Id":""}
+{"level":"info","ts":1598442081.6678789,"msg":"Start to listening the incoming requests on http address:8080"}
+{"level":"info","ts":1598442081.66831,"msg":"Waiting for the router, retry in 1 second."}
+{"level":"info","ts":1598442082.673084,"msg":"The router has been deployed successfully."}
+{"level":"info","ts":1598442086.300328,"msg":"User Create function called.","X-Request-Id":""}
+{"level":"info","ts":1598442116.452391,"msg":"Start to listening the incoming requests on http address:8080"}
+{"level":"info","ts":1598442116.45368,"msg":"The router has been deployed successfully."}
+{"level":"info","ts":1598442120.0852668,"msg":"User Create function called.","X-Request-Id":""}
+{"level":"info","ts":1598442122.589202,"msg":"User Create function called.","X-Request-Id":""}
+{"level":"info","ts":1598442124.040956,"msg":"User Create function called.","X-Request-Id":""}
+{"level":"info","ts":1598442184.919225,"msg":"Start to listening the incoming requests on http address:8080"}
+{"level":"info","ts":1598442184.920219,"msg":"The router has been deployed successfully."}
+{"level":"info","ts":1598442188.885709,"msg":"User Create function called.","X-Request-Id":""}
+{"level":"info","ts":1598442211.783079,"msg":"Start to listening the incoming requests on http address:8080"}
+{"level":"info","ts":1598442211.783936,"msg":"The router has been deployed successfully."}
+{"level":"info","ts":1598442217.666902,"msg":"User Create function called.","X-Request-Id":""}
+{"level":"info","ts":1598442314.309387,"msg":"User Create function called.","X-Request-Id":""}
+{"level":"info","ts":1598442333.256202,"msg":"User Create function called.","X-Request-Id":""}
+{"level":"info","ts":1598442356.8956292,"msg":"Start to listening the incoming requests on http address:8080"}
+{"level":"info","ts":1598442356.900127,"msg":"The router has been deployed successfully."}
+{"level":"info","ts":1598442366.088288,"msg":"User Create function called.","X-Request-Id":""}
+{"level":"info","ts":1598442684.5808902,"msg":"Start to listening the incoming requests on http address:8080"}
+{"level":"info","ts":1598442684.581375,"msg":"Waiting for the router, retry in 1 second."}
+{"level":"info","ts":1598442685.5875661,"msg":"The router has been deployed successfully."}

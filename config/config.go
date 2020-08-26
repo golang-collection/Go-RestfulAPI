@@ -56,7 +56,8 @@ func GetMysqlUrl() string {
 	mysqlUser := viper.GetString("mysql.user")
 	mysqlPassword := viper.GetString("mysql.password")
 	mysqlDBName := viper.GetString("mysql.db_name")
-	mysqlURL := mysqlUser + ":" + mysqlPassword + "@(" + mysqlHost + ")/" + mysqlDBName
+	//添加parseTime=True解决unsupported Scan, storing driver.Value type []uint8 into type *time.Time错误
+	mysqlURL := mysqlUser + ":" + mysqlPassword + "@(" + mysqlHost + ")/" + mysqlDBName + "?charset=utf8&parseTime=True"
 	return mysqlURL
 }
 

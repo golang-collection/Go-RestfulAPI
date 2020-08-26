@@ -21,7 +21,7 @@ func Create(c *gin.Context) {
 	logging.GetLogger().Info("User Create function called.", zap.String("X-Request-Id", util.GetReqID(c)))
 
 	var r CreateRequest
-	//将参数解析道request中
+	//将传递过来的json数据解析道request中
 	if err := c.Bind(&r); err != nil {
 		SendResponse(c, errno.ErrBind, nil)
 		return
