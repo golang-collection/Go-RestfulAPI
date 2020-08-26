@@ -34,7 +34,7 @@ const (
 	FATAL
 )
 
-func init() {
+func InitLog() {
 
 	logFilePath := getLogFilePath() + getLogFileName()
 	hook := &lumberjack.Logger{

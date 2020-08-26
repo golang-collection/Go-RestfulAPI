@@ -33,6 +33,9 @@ func main() {
 		logging.GetLogger().Error("init config error.", zap.Error(err))
 		panic(err)
 	}
+	//init log
+	logging.InitLog()
+
 	port = viper.GetString("addr")
 
 	gin.SetMode(viper.GetString("runmode"))
@@ -73,7 +76,7 @@ func pingServer() error {
 		}
 
 		// Sleep for a second to continue the next ping.
-		log.Print("Waiting for the router, retry in 1 second.")
+		logging.GetLogger().Info("Waiting for the router, retry in 1 second.")
 		time.Sleep(time.Second)
 	}
 	return errors.New("cannot connect to the router")
