@@ -94,3 +94,6 @@
 {"level":"info","ts":1598445081.4921322,"msg":"96µs          | 127.0.0.1    | POST /v1/user | {code: 20103, message: The token was invalid.}"}
 {"level":"info","ts":1598446044.976204,"msg":"Start to listening the incoming requests on http address:8080"}
 {"level":"info","ts":1598446044.977151,"msg":"The router has been deployed successfully."}
+{"level":"info","ts":1598447578.242326,"msg":"Start to listening the incoming requests on http address:8080"}
+{"level":"info","ts":1598447578.242751,"msg":"Waiting for the router, retry in 1 second."}
+{"level":"info","ts":1598447579.245675,"msg":"The router has been deployed successfully."}

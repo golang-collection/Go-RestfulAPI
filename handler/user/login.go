@@ -16,8 +16,12 @@ import (
 * @Description:
 **/
 
-// Login generates the authentication token
-// if the password was matched with the specified account.
+// @Summary Login generates the authentication token
+// @Produce  json
+// @Param username body string true "Username"
+// @Param password body string true "Password"
+// @Success 200 {string} string "{"code":0,"message":"OK","data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1MjgwMTY5MjIsImlkIjowLCJuYmYiOjE1MjgwMTY5MjIsInVzZXJuYW1lIjoiYWRtaW4ifQ.LjxrK9DuAwAzUD8-9v43NzWBN7HXsSLfebw92DKd1JQ"}}"
+// @Router /login [post]
 func Login(c *gin.Context) {
 	// Binding the data with the user struct.
 	var u model.UserModel
