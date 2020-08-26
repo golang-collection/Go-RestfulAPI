@@ -4,15 +4,19 @@ import (
 	"Go-RestfulAPI/config"
 	"Go-RestfulAPI/pkg/db"
 	"Go-RestfulAPI/pkg/logging"
+	v "Go-RestfulAPI/pkg/version"
 	"Go-RestfulAPI/router"
 	"Go-RestfulAPI/router/middleware"
+	"encoding/json"
 	"errors"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
 	"go.uber.org/zap"
 	"log"
 	"net/http"
+	"os"
 	"time"
 )
 
@@ -24,11 +28,24 @@ import (
 
 var (
 	cfg  = pflag.StringP("config", "c", "", "config file path")
+	version = pflag.BoolP("version", "v", false, "show version info.")
 	port string
 )
 
 func main() {
 	pflag.Parse()
+
+	if *version {
+		v := v.Get()
+		marshalled, err := json.MarshalIndent(&v, "", "  ")
+		if err != nil {
+			fmt.Printf("%v\n", err)
+			os.Exit(1)
+		}
+
+		fmt.Println(string(marshalled))
+		return
+	}
 
 	//init config
 	if err := config.Init(*cfg); err != nil {
@@ -47,7 +64,6 @@ func main() {
 	// Create the Gin engine.
 	g := gin.New()
 
-
 	// Routes.
 	router.Load(
 		// Cores.
@@ -65,6 +81,16 @@ func main() {
 		}
 		logging.GetLogger().Info("The router has been deployed successfully.")
 	}()
+
+	// Start to listening the incoming requests.
+	cert := viper.GetString("tls.cert")
+	key := viper.GetString("tls.key")
+	if cert != "" && key != "" {
+		go func() {
+			logging.GetLogger().Info("Start to listening the incoming requests on https address: " + viper.GetString("tls.addr"))
+			logging.GetLogger().Info(http.ListenAndServeTLS(viper.GetString("tls.addr"), cert, key, g).Error())
+		}()
+	}
 
 	logging.GetLogger().Info("Start to listening the incoming requests on http address" + port)
 	log.Printf(http.ListenAndServe(port, g).Error())

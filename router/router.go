@@ -26,7 +26,12 @@ func Load(g *gin.Engine, mw ...gin.HandlerFunc) *gin.Engine {
 		c.String(http.StatusNotFound, "The incorrect API route.")
 	})
 
+	// api for authentication functionalities
+	g.POST("/login", user.Login)
+
 	u := g.Group("/v1/user")
+	//TODO 待jwt完善后打开此中间件
+	//u.Use(middleware.AuthMiddleware())
 	{
 		u.POST("", user.Create)
 		u.DELETE("/:id", user.Delete)
