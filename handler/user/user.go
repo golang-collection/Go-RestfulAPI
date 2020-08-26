@@ -1,5 +1,7 @@
 package user
 
+import "Go-RestfulAPI/model"
+
 /**
 * @Author: super
 * @Date: 2020-08-26 18:37
@@ -13,4 +15,15 @@ type CreateRequest struct {
 
 type CreateResponse struct {
 	Username string `json:"username"`
+}
+
+type ListRequest struct {
+	Username string `json:"username"`
+	Offset   int    `json:"offset"`
+	Limit    int    `json:"limit"`
+}
+
+type ListResponse struct {
+	TotalCount uint64            `json:"totalCount"`
+	UserList   []*model.UserInfo `json:"userList"`
 }

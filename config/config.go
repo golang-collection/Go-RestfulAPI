@@ -51,6 +51,15 @@ func (c *Config) initConfig() error {
 	return nil
 }
 
+func GetMysqlUrl() string {
+	mysqlHost := viper.GetString("mysql.host")
+	mysqlUser := viper.GetString("mysql.user")
+	mysqlPassword := viper.GetString("mysql.password")
+	mysqlDBName := viper.GetString("mysql.db_name")
+	mysqlURL := mysqlUser + ":" + mysqlPassword + "@(" + mysqlHost + ")/" + mysqlDBName
+	return mysqlURL
+}
+
 // 监控配置文件变化并热加载程序
 func (c *Config) watchConfig() {
 	viper.WatchConfig()

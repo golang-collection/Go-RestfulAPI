@@ -2,6 +2,7 @@ package main
 
 import (
 	"Go-RestfulAPI/config"
+	"Go-RestfulAPI/pkg/db"
 	"Go-RestfulAPI/pkg/logging"
 	"Go-RestfulAPI/router"
 	"errors"
@@ -35,6 +36,8 @@ func main() {
 	}
 	//init log
 	logging.InitLog()
+	//init db
+	db.InitDB()
 
 	port = viper.GetString("addr")
 

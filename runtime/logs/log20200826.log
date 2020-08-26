@@ -10,3 +10,28 @@
 {"level":"error","ts":1598437893.068626,"msg":"get an error","error":"Err - code: 20102, message: The user was not found. This is add message., error: username can not found in db: xx.xx.xx.xx"}
 {"level":"info","ts":1598438617.03993,"msg":"Start to listening the incoming requests on http address:8080"}
 {"level":"info","ts":1598438617.041106,"msg":"The router has been deployed successfully."}
+{"level":"info","ts":1598438647.8274791,"msg":"URL username: admin"}
+{"level":"info","ts":1598438647.8275251,"msg":"URL key param desc: "}
+{"level":"info","ts":1598438647.827538,"msg":"Header Content-Type: "}
+{"level":"info","ts":1598438697.451135,"msg":"URL username: admin"}
+{"level":"info","ts":1598438697.45119,"msg":"URL key param desc: test"}
+{"level":"info","ts":1598438697.451203,"msg":"Header Content-Type: "}
+{"level":"info","ts":1598438712.525496,"msg":"URL username: admin"}
+{"level":"info","ts":1598438712.525545,"msg":"URL key param desc: test"}
+{"level":"info","ts":1598438712.5255759,"msg":"Header Content-Type: "}
+{"level":"info","ts":1598438722.008332,"msg":"URL username: admin"}
+{"level":"info","ts":1598438722.008404,"msg":"URL key param desc: test"}
+{"level":"info","ts":1598438722.008428,"msg":"Header Content-Type: "}
+{"level":"error","ts":1598440447.895068,"msg":"conn mysql error","err":"sql: unknown driver \"mysql\" (forgotten import?)"}
+{"level":"error","ts":1598440481.804287,"msg":"conn mysql error","err":"sql: unknown driver \"mysql\" (forgotten import?)"}
+{"level":"error","ts":1598440940.4179552,"msg":"conn mysql error","err":"sql: unknown driver \"mysql\" (forgotten import?)"}
+{"level":"info","ts":1598440982.8187551,"msg":"Start to listening the incoming requests on http address:8080"}
+{"level":"info","ts":1598440982.8192809,"msg":"Waiting for the router, retry in 1 second."}
+{"level":"info","ts":1598440983.823939,"msg":"The router has been deployed successfully."}
+{"level":"info","ts":1598441070.818815,"msg":"User Create function called.","X-Request-Id":""}
+{"level":"info","ts":1598441128.1658392,"msg":"User Create function called.","X-Request-Id":""}
+{"level":"info","ts":1598441339.195921,"msg":"User Create function called.","X-Request-Id":""}
+{"level":"info","ts":1598441631.11685,"msg":"Start to listening the incoming requests on http address:8080"}
+{"level":"info","ts":1598441631.117387,"msg":"Waiting for the router, retry in 1 second."}
+{"level":"info","ts":1598441632.1226099,"msg":"The router has been deployed successfully."}
+{"level":"info","ts":1598441637.281661,"msg":"User Create function called.","X-Request-Id":""}

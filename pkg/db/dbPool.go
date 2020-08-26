@@ -1,9 +1,10 @@
 package db
 
 import (
+	"Go-RestfulAPI/config"
 	"Go-RestfulAPI/pkg/logging"
 	"github.com/jinzhu/gorm"
-	"github.com/spf13/viper"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"go.uber.org/zap"
 )
 
@@ -15,10 +16,10 @@ import (
 
 var _db *gorm.DB
 
-func init() {
+func InitDB() {
 	//连接MYSQL, 获得DB类型实例，用于后面的数据库读写操作。
 	var err error
-	mysqlURL := viper.GetString("mysql.addr")
+	mysqlURL := config.GetMysqlUrl()
 
 	_db, err = gorm.Open("mysql", mysqlURL)
 	if err != nil {

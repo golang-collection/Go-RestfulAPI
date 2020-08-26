@@ -2,10 +2,12 @@ package user
 
 import (
 	. "Go-RestfulAPI/handler"
+	"Go-RestfulAPI/model"
 	"Go-RestfulAPI/pkg/errno"
 	"Go-RestfulAPI/pkg/logging"
-	"fmt"
+	"Go-RestfulAPI/util"
 	"github.com/gin-gonic/gin"
+	"go.uber.org/zap"
 )
 
 /**
@@ -16,29 +18,35 @@ import (
 
 // Create creates a new user account.
 func Create(c *gin.Context) {
+	logging.GetLogger().Info("User Create function called.", zap.String("X-Request-Id", util.GetReqID(c)))
+
 	var r CreateRequest
+	//将参数解析道request中
 	if err := c.Bind(&r); err != nil {
 		SendResponse(c, errno.ErrBind, nil)
 		return
 	}
 
-	admin2 := c.Param("username")
-	logging.GetLogger().Info("URL username: " + admin2)
+	u := model.UserModel{
+		Username: r.Username,
+		Password: r.Password,
+	}
 
-	desc := c.Query("desc")
-	logging.GetLogger().Info("URL key param desc: " + desc)
-
-	contentType := c.GetHeader("Content-Type")
-	logging.GetLogger().Info("Header Content-Type: " + contentType)
-
-	logging.GetLogger().Debug("username is: [" + r.Username + "], password is [" + r.Password + "]")
-	if r.Username == "" {
-		SendResponse(c, errno.New(errno.ErrUserNotFound, fmt.Errorf("username can not found in db: xx.xx.xx.xx")), nil)
+	// Validate the data.
+	if err := u.Validate(); err != nil {
+		SendResponse(c, errno.ErrValidation, nil)
 		return
 	}
 
-	if r.Password == "" {
-		SendResponse(c, fmt.Errorf("password is empty"), nil)
+	// Encrypt the user password.
+	if err := u.Encrypt(); err != nil {
+		SendResponse(c, errno.ErrEncrypt, nil)
+		return
+	}
+	// Insert the user to the database.
+	if err := u.Create(); err != nil {
+		SendResponse(c, errno.ErrDatabase, nil)
+		return
 	}
 
 	rsp := CreateResponse{
