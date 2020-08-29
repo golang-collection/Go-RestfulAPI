@@ -79,7 +79,7 @@ Deployment projects offer the following two approaches:
 - Direct Deploy
 - Docker(Recommended)
 
-### Pre-requisite
+## Pre-requisite
 
 - Go 1.13.6
 - MySQL 5.7
