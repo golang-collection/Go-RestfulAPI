@@ -1,0 +1,12 @@
+{"level":"info","ts":1598692049.4897568,"msg":"Start to listening the incoming requests on http address:8080"}
+{"level":"info","ts":1598692049.495552,"msg":"The router has been deployed successfully."}
+{"level":"info","ts":1598692097.7556322,"msg":"44.967ms      | 127.0.0.1    | GET /v1/user/admin | {code: 0, message: OK}"}
+{"level":"info","ts":1598692299.284439,"msg":"Start to listening the incoming requests on http address:8080"}
+{"level":"info","ts":1598692299.286787,"msg":"The router has been deployed successfully."}
+{"level":"info","ts":1598692351.976311,"msg":"36.587ms      | 127.0.0.1    | GET /v1/user/admin | {code: 0, message: OK}"}
+{"level":"info","ts":1598700889.070102,"msg":"Start to listening the incoming requests on http address:80"}
+{"level":"info","ts":1598700889.070671,"msg":"Waiting for the router, retry in 1 second."}
+{"level":"info","ts":1598700890.077237,"msg":"The router has been deployed successfully."}
+{"level":"info","ts":1598701412.461568,"msg":"Start to listening the incoming requests on http address:80"}
+{"level":"info","ts":1598701412.46244,"msg":"Waiting for the router, retry in 1 second."}
+{"level":"info","ts":1598701413.4675741,"msg":"The router has been deployed successfully."}

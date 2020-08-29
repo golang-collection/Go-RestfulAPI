@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports: ["8080"]
+
+  lb:
+    image: dockercloud/haproxy
+    links:
+      - web
+    ports:
+      - 80:80
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock

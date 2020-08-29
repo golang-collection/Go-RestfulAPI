@@ -2,6 +2,7 @@ package router
 
 import (
 	_ "Go-RestfulAPI/docs"
+	"Go-RestfulAPI/handler/runtime"
 	"Go-RestfulAPI/handler/sd"
 	"Go-RestfulAPI/handler/user"
 	"Go-RestfulAPI/router/middleware"
@@ -54,6 +55,8 @@ func Load(g *gin.Engine, mw ...gin.HandlerFunc) *gin.Engine {
 		svcd.GET("/cpu", sd.CPUCheck)
 		svcd.GET("/ram", sd.RAMCheck)
 	}
+
+	g.GET("/ip", runtime.GetIP)
 
 	return g
 }

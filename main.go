@@ -49,7 +49,7 @@ func main() {
 
 	//init config
 	if err := config.Init(*cfg); err != nil {
-		logging.GetLogger().Error("init config error.", zap.Error(err))
+		log.Println(err)
 		panic(err)
 	}
 	//init log

@@ -12,7 +12,7 @@ ldflags="-w -X versionDir.gitTag={gitTag} -X versionDir.buildDate={buildDate} -X
 
 
 all: gotool
-	@go build -v -ldflags ${ldflags} .
+	@CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -v -ldflags ${ldflags} .
 clean:
 	rm -f Go-RestfulAPI
 	find . -name "[._]*.s[a-w][a-z]" | xargs -i rm -f {}
