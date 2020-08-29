@@ -14,7 +14,9 @@
 
 Github：[https://github.com/golang-collection/Go-RestfulAPI](https://github.com/golang-collection/Go-RestfulAPI)
 
-本项目为Go语言构建Restful API服务，项目采用gin构建，包括jwt，swagger，make，bash等模块，通过docker一键部署在nginx服务器。
+本项目使用Go语言构建Restful API服务，项目采用gin构建，包括jwt，swagger，viper, zap, gorm, make，bash等模块，通过docker一键部署并且可以动态扩缩容实现负载均衡。
+
+This project uses Go language to build Restful API services, and gin to build the project, including JWT, Swagger, Viper, Zap, Gorm, Make, bash and other modules. It can be deployed by docker with one key and dynamically expand capacity to achieve load balance.
 
 # 目录结构
 
@@ -24,6 +26,7 @@ Github：[https://github.com/golang-collection/Go-RestfulAPI](https://github.com
 - handler 构建具体的api服务
     - sd 健康检查
     - user user操作
+    - runtime 获取运行时ip
 - model 结构体定义
 - pkg 常用功能模块
     - auth 用户加密
@@ -42,13 +45,13 @@ Github：[https://github.com/golang-collection/Go-RestfulAPI](https://github.com
 - admin.sh 启动，停止服务脚本
 - Makefile 编译构建项目
 - main.go 项目统一入口
+- Dockerfile 通过此文件构建docker镜像
+- docker-compose.yml 通过此文件启动服务
 
-# 配置文件
-需要定制自己的配置文件
+# Config
+You need to customize your config. Create the config.json file under conf folder.
 
-在conf下创建config.json文件
-
-配置样例如下
+The configuration sample is shown below
 ```json
 {
   "mysql": {
@@ -71,16 +74,16 @@ Github：[https://github.com/golang-collection/Go-RestfulAPI](https://github.com
 
 # Installation
 
-将项目部署到本地或云端提供以下两种方式：
+Deployment projects offer the following two approaches:
 
 - Direct Deploy
-- Docker(Recommand)
+- Docker(Recommended)
 
 ### Pre-requisite
 
 - Go 1.13.6
 - MySQL 5.7
-- 相关依赖：[go.mod](./go.mod)
+- Others：[go.mod](./go.mod)
 
 ## Quick Start
 
@@ -89,6 +92,7 @@ Please open the command line prompt and execute the command below. Make sure you
 ```
 git clone git@github.com:golang-collection/Go-RestfulAPI.git
 cd Go-RestfulAPI
+make
 docker-compose up -d
 ```
 
@@ -96,29 +100,59 @@ Next, you can look into the `docker-compose.yml` (with detailed config params).
 
 ## Run
 
+### make
+The make command generates a binary executable of the service from the Makefile.
+
 ### Docker
 
 Please use `docker-compose` to one-click to start up. By doing so, you don't even have to configure RabbitMQ , Reds, MySQ,ElasticSearch. Create a file named `docker-compose.yml` and input the code below.
 
-```
-version: '3.3'
+```yaml
+version: "3"
+
 services:
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports: ["8080"]
+
+  lb:
+    image: dockercloud/haproxy
+    links:
+      - web
+    ports:
+      - 80:80
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
   
 ```
 
-Then execute the command below, and the project will start up. Open the browser and enter `http://localhost:8080` to see the UI interface.
+Then execute the command below, and the project will start up. Open the browser and enter `http://localhost:80/swagger/index.html` to see the swagger UI interface.
 
-```
+```bash
 docker-compose up
+```
+
+You can expand the service by following this command, and then the load balancer will automatically assign each request to each service.
+
+```bash
+docker-compose up --scale web=3 -d
 ```
 
 ### Direct
 
 ```bash
 cd Go-RestfulAPI
-go run main.go
+make
+bash admin.sh start
 ```
+You can check the health of the service by following the command
 
+```bash
+bash admin.sh status
+```
 
 # Appendix
 
